@@ -1,0 +1,4 @@
+# Keycloak may be accessed in-cluster or from outside
+keycloakInternalHost: keycloak.keycloak
+keycloakExternalHost: iam.niraqa.idencode.link
+service: keycloak
