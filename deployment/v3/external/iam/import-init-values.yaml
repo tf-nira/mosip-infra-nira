@@ -438,6 +438,7 @@ keycloak:
          mappers: []
          saroles:
            - PUBLISH_DEACTIVATE_ID_ALL_INDIVIDUAL
+           - SUBSCRIBE_CARD_NUMBER_UPDATE_GENERAL
            - SUBSCRIBE_VID_CRED_STATUS_UPDATE_GENERAL
            - ID_REPOSITORY
            - PUBLISH_ACTIVATE_ID_ALL_INDIVIDUAL
