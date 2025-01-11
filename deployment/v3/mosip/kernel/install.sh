@@ -46,10 +46,10 @@ function installing_kernel() {
 
   ADMIN_HOST=$(kubectl get cm global -o jsonpath={.data.mosip-admin-host})
   echo Installing masterdata and allowing Admin UI to access masterdata services.
-  helm -n $NS install masterdata mosip/masterdata --set image.repository=niradocker/kernel-masterdata-service --set image.tag=niradev-1.2.0.1-N1  --set istio.corsPolicy.allowOrigins\[0\].exact=https://$ADMIN_HOST  --version $CHART_VERSION
+  helm -n $NS install masterdata mosip/masterdata --set image.repository=niraqa/kernel-masterdata-service --set image.tag=tf_nira_qa  --set istio.corsPolicy.allowOrigins\[0\].exact=https://$ADMIN_HOST  --version $CHART_VERSION
 
   echo Installing otpmanager
-  helm -n $NS install otpmanager mosip/otpmanager --set image.repository=niradocker/kernel-otpmanager-service --set image.tag=niradev-1.2.0.1-N1 --version $CHART_VERSION
+  helm -n $NS install otpmanager mosip/otpmanager --set image.repository=niraqa/kernel-otpmanager-service --set image.tag=tf_nira_qa --version $CHART_VERSION
 
   echo Installing pridgenerator
   helm -n $NS install pridgenerator mosip/pridgenerator --set image.repository=niradocker/kernel-pridgenerator-service --set image.tag=niradev-1.2.0.1-N1 --version $CHART_VERSION
@@ -58,7 +58,7 @@ function installing_kernel() {
   helm -n $NS install ridgenerator mosip/ridgenerator --set image.repository=niradocker/kernel-ridgenerator-service --set image.tag=niradev-1.2.0.1-N1 --version $CHART_VERSION
 
   echo Installing syncdata
-  helm -n $NS install syncdata mosip/syncdata --set image.repository=niradocker/kernel-syncdata-service --set image.tag=niradev-1.2.0.1-N1 --version $CHART_VERSION
+  helm -n $NS install syncdata mosip/syncdata --set image.repository=niraqa/kernel-syncdata-service --set image.tag=tf_nira_qa --version $CHART_VERSION
 
   echo Installing notifier
   helm -n $NS install notifier mosip/notifier --set image.repository=niradocker/kernel-notification-service --set image.tag=niradev-1.2.0.1-N1 --version $CHART_VERSION

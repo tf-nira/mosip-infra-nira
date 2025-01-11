@@ -18,7 +18,7 @@ function installing_artifactory() {
   helm repo update
 
   echo Installing artifactory
-  helm -n $NS install artifactory mosip/artifactory --set image.repository=niradocker/artifactory-server --set image.tag=niradev-1.2.0.1-N1 --version $CHART_VERSION
+  helm -n $NS install artifactory mosip/artifactory --set image.repository=niraqa/artifactory-server --set image.tag=tf_nira_qa --version $CHART_VERSION
 
   kubectl -n $NS  get deploy -o name |  xargs -n1 -t  kubectl -n $NS rollout status
 
