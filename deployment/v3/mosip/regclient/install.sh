@@ -40,7 +40,7 @@ function installing_regclient() {
   HEALTH_URL=https://$INTERNAL_HOST/v1/syncdata/actuator/health
 
   echo Install reg client downloader. This may take a few minutes ..
-  helm -n $NS install regclient mosip/regclient --set image.repository=niradocker/registration-client --set image.tag=niradev-1.2.0.2-N1 \
+  helm -n $NS install regclient mosip/regclient --set image.repository=niraqa/registration-client --set image.tag=tf_nira_qa \
     --set regclient.upgradeServerUrl=https://$REGCLIENT_HOST \
     --set regclient.healthCheckUrl=$HEALTH_URL \
     --set regclient.hostName=$INTERNAL_HOST \
