@@ -39,13 +39,13 @@ function installing_ida() {
   helm -n $NS install ida-keygen mosip/keygen --wait --wait-for-jobs  --version $CHART_VERSION -f keygen_values.yaml
 
   echo Installing ida auth
-  helm -n $NS install ida-auth mosip/ida-auth --set image.repository=niradocker/authentication-service --set image.tag=niradev-1.2.0.1-N1 --version $CHART_VERSION $ENABLE_INSECURE
+  helm -n $NS install ida-auth mosip/ida-auth --set image.repository=niraqa/authentication-service --set image.tag=tf_nira_qa --version $CHART_VERSION $ENABLE_INSECURE
 
   echo Installing ida internal
-  helm -n $NS install ida-internal mosip/ida-internal --set image.repository=niradocker/authentication-internal-service --set image.tag=niradev-1.2.0.1-N1 --version $CHART_VERSION $ENABLE_INSECURE
+  helm -n $NS install ida-internal mosip/ida-internal --set image.repository=niraqa/authentication-internal-service --set image.tag=tf_nira_qa --version $CHART_VERSION $ENABLE_INSECURE
 
   echo Installing ida otp
-  helm -n $NS install ida-otp mosip/ida-otp --set image.repository=niradocker/authentication-otp-service --set image.tag=niradev-1.2.0.1-N1 --version $CHART_VERSION $ENABLE_INSECURE
+  helm -n $NS install ida-otp mosip/ida-otp --set image.repository=niraqa/authentication-otp-service --set image.tag=tf_nira_qa --version $CHART_VERSION $ENABLE_INSECURE
 
   kubectl -n $NS  get deploy -o name |  xargs -n1 -t  kubectl -n $NS rollout status
   echo Intalled ida services
